@@ -1,6 +1,7 @@
-var burger = require("../models/burger.js");
+var burger = require("../models/burgers.js");
 var express = require("express");
 var router = express.Router();
+//express route to render all data
 router.get("/", function (req, res) {
   burger.selectAll(function (data) {
     var burgerObject = {
@@ -9,11 +10,13 @@ router.get("/", function (req, res) {
     res.render("index", burgerObject);
   });
 });
+//express route to create burger
 router.post("/api/burgers", function (req, res) {
   burger.insertOne(["burger_name"], [req.body.burger_name], function (result) {
     res.json({ id: result.insertId });
   });
 });
+//express route to update burger devour state
 router.put("/api/burgers/:id", function (req, res) {
   var condition = "id = " + req.params.id;
   burger.updateOne(
@@ -30,6 +33,7 @@ router.put("/api/burgers/:id", function (req, res) {
     }
   );
 });
+//express route to delete all burgers
 router.delete("/api/burgers/all", function (req, res) {
   burger.deleteAll(function (result) {
     if (result.affectedRows == 0) {
@@ -39,4 +43,5 @@ router.delete("/api/burgers/all", function (req, res) {
     }
   });
 });
+//exporting router
 module.exports = router;
