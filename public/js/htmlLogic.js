@@ -1,5 +1,5 @@
 $(function () {
-  $(".devourButton").on("click", function (event) {
+  $(".devourBtn").on("click", function (event) {
     var id = $(this).data("id");
     var newDevourState = {
       devoured: true,
@@ -23,7 +23,7 @@ $(function () {
       location.reload();
     });
   });
-  $(".deleteButton").on("click", function (event) {
+  $(".deleteBtn").on("click", function (event) {
     event.preventDefault();
     $.ajax("/api/burgers/all", {
       type: "DELETE",

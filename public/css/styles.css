@@ -31,6 +31,18 @@ ul {
 body {
   padding: 35px;
 }
+
+#referenceContainer {
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: white;
+}
+.devourBtn {
+  border: 1px solid black;
+}
+.addBurger {
+  border-radius: 5px;
+}
 .wrapper {
   height: 100%;
   padding: 27px;
@@ -41,18 +53,7 @@ body {
 .thumbnail {
   size: 99px;
 }
-.deleteButton {
+.deleteBtn {
   background-color: rgb(201, 152, 5);
   margin: 25px;
-}
-#targetContainer {
-  border: 1px solid black;
-  border-radius: 15px;
-  background-color: white;
-}
-.devourButton {
-  border: 1px solid black;
-}
-.addBurger {
-  border-radius: 5px;
 }
