@@ -1,4 +1,5 @@
 var connection = require("./connection.js");
+//function to generate question marks for query string
 function generateQuestionMarks(num) {
   var arr = [];
   for (var i = 0; i < num; i++) {
@@ -6,6 +7,7 @@ function generateQuestionMarks(num) {
   }
   return arr;
 }
+//function to change burger object into sql
 function objectToSql(ob) {
   var arr = [];
   for (var key in ob) {
@@ -19,7 +21,9 @@ function objectToSql(ob) {
   }
   return arr;
 }
+
 var orm = {
+  //select all method to select all burger data
   selectAll: function (tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function (err, result) {
@@ -27,6 +31,7 @@ var orm = {
       cb(result);
     });
   },
+  // function to insert one burger into sql
   insertOne: function (table, cols, vals, cb) {
     var queryString = "INSERT INTO " + table;
     queryString += " (";
@@ -40,6 +45,7 @@ var orm = {
       cb(result);
     });
   },
+  // function to update one burger
   updateOne: function (table, objColVals, condition, cb) {
     var queryString = "UPDATE " + table;
     queryString += " SET ";
@@ -51,6 +57,7 @@ var orm = {
       cb(result);
     });
   },
+  //function to delete burger
   delete: function (table, condition, cb) {
     var queryString = "DELETE FROM " + table;
     queryString += " WHERE ";
@@ -60,6 +67,7 @@ var orm = {
       cb(result);
     });
   },
+  //function to delete all burgers
   deleteAll: function (table, cb) {
     var queryString = "DELETE FROM " + table;
     connection.query(queryString, function (err, result) {
